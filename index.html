@@ -55,7 +55,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="first-class">First Class ($150)</label>
-                    <input id="first-class-price-count" id="first-class" class="form-control text-center" type="text"
+                    <input id="first-class-count" id="first-class" class="form-control text-center" type="text"
                         value="1">
                 </div>
                 <button onclick="handleFirstClassTicket(true)" class="btn btn-default"><i
@@ -67,7 +67,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="economy">Economy ($100)</label>
-                    <input id="economy-class-price-count" id="economy" class="form-control text-center" type="text"
+                    <input id="economy-class-count" id="economy" class="form-control text-center" type="text"
                         value="1">
                 </div>
                 <button onclick="handleEconomyTicket(true)" id="price-increase" class="btn btn-default"><i
@@ -124,36 +124,47 @@
             // coding type 3
 
              function handleFirstClassTicket(isIncrease) {
-                const priceInput = document.getElementById('first-class-price-count');
-                console.log('price check');
-                const priceCount = parseInt(priceInput.value);
-                let priceNewCount = priceCount;
+                const firstClassInput = document.getElementById('first-class-count');
+                const firstClassCount = parseInt(firstClassInput.value);
+                let priceNewCount = firstClassCount;
                 if (isIncrease == true) {
-                    priceNewCount = priceCount + 1;
+                    priceNewCount = firstClassCount + 1;
                 }
-                if (isIncrease == false && priceCount > 0) {
-                    priceNewCount = priceCount - 1;
+                if (isIncrease == false && firstClassCount > 0) {
+                    priceNewCount = firstClassCount - 1;
                 }
-                priceInput.value = priceNewCount;
+                firstClassInput.value = priceNewCount;
                 const subTotalPrice = priceNewCount * 150;
                 document.getElementById('sub-total-price').innerText = '$' + subTotalPrice;
+                calculateTotal()
             }
 
             function handleEconomyTicket(isIncrease) {
-                const priceInput = document.getElementById('economy-class-price-count');
-                const priceCount = parseInt(priceInput.value);
-                let priceNewCount = priceCount;
+                const economyInput = document.getElementById('economy-class-count');
+                const economyCount = parseInt(economyInput.value);
+                let priceNewCount = economyCount;
                 if (isIncrease == true) {
-                    priceNewCount = priceCount + 1;
+                    priceNewCount = economyCount + 1;
                 }
-                if (isIncrease == false && priceCount > 0) {
-                    priceNewCount = priceCount - 1;
+                if (isIncrease == false && economyCount > 0) {
+                    priceNewCount = economyCount - 1;
                 }
-                priceInput.value = priceNewCount;
+                economyInput.value = priceNewCount;
                 const subTotalPrice = priceNewCount * 100;
                 document.getElementById('sub-total-price').innerText = '$' + subTotalPrice;
+                calculateTotal()
             }
 
+            function calculateTotal() {
+                var firstClassInput = document.getElementById('first-class-count');
+                var firstClassCount = parseInt(firstClassInput.value);
+
+                var economyInput = document.getElementById('economy-class-count');
+                var economyCount = parseInt(economyInput.value);
+
+                var subtotalPrice = firstClassCount * 150 + economyCount * 100;
+                document.getElementById('sub-total-price').innerText = '$' + subtotalPrice;
+            }
 
 
             // coding tye 1
