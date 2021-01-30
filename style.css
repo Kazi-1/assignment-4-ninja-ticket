@@ -118,3 +118,9 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+
+#thank-you-area{
+    display: none;
+    margin-top: 300px;
+    color: yellow;
+}
