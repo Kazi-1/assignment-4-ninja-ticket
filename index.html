@@ -114,15 +114,16 @@
                     nobise
                     voluptatibus quam</p>
             </div>
+
+            <div class="text-center" id="thank-you-area">
+                <h3>Congratulations! Your tickets have been booked</h3>
+                 <h1>Thank You for choosing Discover Fly</h1>
+                 <h2>Have a safe journey.</h2>
+                 <h4>See you soon!</h4>
+            </div>
+
             </section>
     </div>
-    <div class="text-center" id="thank-you-area">
-        <h3>Congratulations! Your tickets have been booked</h3>
-         <h1>Thank You for choosing Discover Fly</h1>
-         <h2>Have a safe journey.</h2>
-         <h4>See you soon!</h4>
-    </div>
-
 
     <script>
         function handleFirstClassTicket(isIncrease) {
@@ -174,8 +175,13 @@
             document.getElementById('grand-total').innerText = '$' + grandTotal;
         };
 
-
-       
+        const bookNowBtn = document.getElementById('book-now');
+        bookNowBtn.addEventListener('click', function () {
+            const mainContext = document.getElementById("main-context");
+            mainContext.style.display = "none";
+            const thankYouArea = document.getElementById("thank-you-area");
+            thankYouArea.style.display = "block";
+        })
     </script>
 
 
