@@ -56,7 +56,7 @@
                 <div>
                     <label for="first-class">First Class ($150)</label>
                     <input id="first-class-count" id="first-class" class="form-control text-center" type="text"
-                        value="1">
+                        value="0">
                 </div>
                 <button onclick="handleFirstClassTicket(true)" class="btn btn-default"><i
                         class="fas fa-plus"></i></button>
@@ -68,7 +68,7 @@
                 <div>
                     <label for="economy">Economy ($100)</label>
                     <input id="economy-class-count" id="economy" class="form-control text-center" type="text"
-                        value="1">
+                        value="0">
                 </div>
                 <button onclick="handleEconomyTicket(true)" id="price-increase" class="btn btn-default"><i
                         class="fas fa-plus"></i></button>
@@ -81,7 +81,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p id="sub-total-price">$100</p>
+                        <p id="sub-total-price">$00</p>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p id="tax-amount">$00</p>
                     </div>
                 </div>
                 <hr>
@@ -99,7 +99,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p id="grand-total">$00</p>
                     </div>
                 </div>
             </div>
@@ -116,13 +116,6 @@
 
 
         <script>
-            // coding type 4
-
-        
-
-
-            // coding type 3
-
              function handleFirstClassTicket(isIncrease) {
                 const firstClassInput = document.getElementById('first-class-count');
                 const firstClassCount = parseInt(firstClassInput.value);
@@ -136,8 +129,8 @@
                 firstClassInput.value = priceNewCount;
                 const subTotalPrice = priceNewCount * 150;
                 document.getElementById('sub-total-price').innerText = '$' + subTotalPrice;
-                calculateTotal()
-            }
+                calculateTotal();
+            };
 
             function handleEconomyTicket(isIncrease) {
                 const economyInput = document.getElementById('economy-class-count');
@@ -152,40 +145,25 @@
                 economyInput.value = priceNewCount;
                 const subTotalPrice = priceNewCount * 100;
                 document.getElementById('sub-total-price').innerText = '$' + subTotalPrice;
-                calculateTotal()
-            }
+                calculateTotal();
+            };
 
             function calculateTotal() {
-                var firstClassInput = document.getElementById('first-class-count');
-                var firstClassCount = parseInt(firstClassInput.value);
+                const firstClassInput = document.getElementById('first-class-count');
+                const firstClassCount = parseInt(firstClassInput.value);
 
-                var economyInput = document.getElementById('economy-class-count');
-                var economyCount = parseInt(economyInput.value);
+                const economyInput = document.getElementById('economy-class-count');
+                const economyCount = parseInt(economyInput.value);
 
-                var subtotalPrice = firstClassCount * 150 + economyCount * 100;
+                const subtotalPrice = firstClassCount * 150 + economyCount * 100;
                 document.getElementById('sub-total-price').innerText = '$' + subtotalPrice;
-            }
 
+                const tax = Math.round(subtotalPrice * 0.1);
+                document.getElementById('tax-amount').innerText = '$' + tax;
 
-            // coding tye 1
-
-            // document.getElementById('price-increase').addEventListener('click', function () {
-            //     const priceInput = document.getElementById('price-count');
-            //     const priceCount = parseInt(priceInput.value);
-            //     const priceNewCount = priceCount + 1;
-            //     priceInput.value = priceNewCount;
-            //     const subTotalPrice = priceNewCount * 100;
-            //     document.getElementById('sub-total-price').innerText = "$" + subTotalPrice;
-            // });
-
-            // document.getElementById('price-decrease').addEventListener('click', function(){
-            //     const priceInput = document.getElementById('price-count');
-            //     const priceCount = parseInt(priceInput.value);
-            //     const priceNewCount = priceCount - 1;
-            //     priceInput.value = priceNewCount;
-            //     const subTotalPrice = priceNewCount * 100;
-            //     document.getElementById('sub-total-price').innerText = '$' + subTotalPrice;
-            // });
+                const grandTotal = subtotalPrice + tax;
+                document.getElementById('grand-total').innerText = '$' + grandTotal;
+            };
         </script>
 
 
