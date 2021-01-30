@@ -53,27 +53,29 @@
                         <input class="inp-style" type="date" name="">
                     </div>
                 </div>
+                <!-- First Class -->
                 <div class="input-group f-class">
                     <div>
                         <label for="first-class">First Class ($150)</label>
                         <input id="first-class-count" id="first-class" class="form-control text-center" type="text"
                             value="0">
                     </div>
-                    <button onclick="handleFirstClassTicket(true)" class="btn btn-default"><i
+                    <button onclick="handleFirstClassTicket(true)" class="btn btn-default mt-4"><i
                             class="fas fa-plus"></i></button>
-                    <button onclick="handleFirstClassTicket(false)" class="btn btn-default"><i
+                    <button onclick="handleFirstClassTicket(false)" class="btn btn-default mt-4"><i
                             class="fas fa-minus"></i></button>
                 </div>
 
+                <!-- Economy Class -->
                 <div class="input-group f-class">
                     <div>
                         <label for="economy">Economy ($100)</label>
                         <input id="economy-class-count" id="economy" class="form-control text-center" type="text"
                             value="0">
                     </div>
-                    <button onclick="handleEconomyTicket(true)" id="price-increase" class="btn btn-default"><i
+                    <button onclick="handleEconomyTicket(true)" id="price-increase" class="btn btn-default mt-4"><i
                             class="fas fa-plus"></i></button>
-                    <button onclick="handleEconomyTicket(false)" id="price-decrease" class="btn btn-default"><i
+                    <button onclick="handleEconomyTicket(false)" id="price-decrease" class="btn btn-default mt-4"><i
                             class="fas fa-minus"></i></button>
                 </div>
                 <div class="calculations">
@@ -120,7 +122,7 @@
             </section>
     </div>
 
-
+    <!-- Thank You Area -->
     <div class="text-center" id="thank-you-area">
         <h2>Congratulations!</h2>
         <h3>Your tickets have been booked</h3>
@@ -129,6 +131,7 @@
         <h5>See you soon!</h5>
     </div>
 
+    <!-- Scripts Area -->
     <script>
         function handleFirstClassTicket(isIncrease) {
             const firstClassInput = document.getElementById('first-class-count');
